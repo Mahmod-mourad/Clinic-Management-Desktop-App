@@ -1,0 +1,26 @@
+diff --git a/lib/textkit.cjs b/lib/textkit.cjs
+index 78797407e1441ba9c495252394180c586151c743..63dcacbf74049beee3680081d2a75b6dc32738ef 100644
+--- a/lib/textkit.cjs
++++ b/lib/textkit.cjs
+@@ -1107,7 +1107,7 @@ var reorderLine = function reorderLine(attributedString) {
+     for (var i = 0; i < selectedIndices.length; i += 1) {
+       var index = selectedIndices[i];
+       var glyph = getItemAtIndex(attributedString.runs, 'glyphs', index);
+-      if (addedGlyphs.has(glyph.id)) continue;
++      if (!glyph || addedGlyphs.has(glyph.id)) continue;
+       updatedGlyphs.push(glyph);
+       updatedPositions.push(getItemAtIndex(attributedString.runs, 'positions', index));
+       if (glyph.isLigature) {
+diff --git a/lib/textkit.js b/lib/textkit.js
+index 9c407c8bd37a1ecb9f187ad3136ad2612dd7f12d..395304b516da0449ddfd9345d5b7d6d90450010b 100644
+--- a/lib/textkit.js
++++ b/lib/textkit.js
+@@ -1093,7 +1093,7 @@ var reorderLine = function reorderLine(attributedString) {
+     for (var i = 0; i < selectedIndices.length; i += 1) {
+       var index = selectedIndices[i];
+       var glyph = getItemAtIndex(attributedString.runs, 'glyphs', index);
+-      if (addedGlyphs.has(glyph.id)) continue;
++      if (!glyph || addedGlyphs.has(glyph.id)) continue;
+       updatedGlyphs.push(glyph);
+       updatedPositions.push(getItemAtIndex(attributedString.runs, 'positions', index));
+       if (glyph.isLigature) {

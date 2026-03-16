@@ -1,0 +1,19 @@
+node_modules
+out
+dist
+.env
+*.db
+*.db-shm
+*.db-wal
+*.pre_encrypt_backup
+.claude/
+
+# Mac metadata
+.DS_Store
+**/.DS_Store
+
+# License key generator (contains private HMAC_SECRET)
+tools/generate-key.ts
+
+# Build cache
+.vite/

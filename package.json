@@ -1,0 +1,153 @@
+{
+  "name": "clinic-app",
+  "version": "1.0.0",
+  "description": "نظام إدارة عيادة طبية",
+  "main": "out/main/index.js",
+  "scripts": {
+    "dev": "ELECTRON_RUN_AS_NODE= electron-vite dev",
+    "build": "electron-vite build",
+    "build:mac": "pnpm build && electron-builder --mac --arm64",
+    "build:win": "pnpm build && electron-builder --win --x64",
+    "typecheck": "tsc --noEmit -p tsconfig.json && tsc --noEmit -p tsconfig.node.json",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:studio": "drizzle-kit studio"
+  },
+  "dependencies": {
+    "@googleapis/drive": "^20.1.0",
+    "@hookform/resolvers": "^3.3.4",
+    "@radix-ui/react-avatar": "^1.0.4",
+    "@radix-ui/react-dialog": "^1.0.5",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
+    "@radix-ui/react-popover": "^1.0.7",
+    "@radix-ui/react-select": "^2.0.0",
+    "@radix-ui/react-separator": "^1.0.3",
+    "@radix-ui/react-switch": "^1.0.3",
+    "@radix-ui/react-tabs": "^1.0.4",
+    "@radix-ui/react-tooltip": "^1.0.7",
+    "@react-pdf/renderer": "^3.3.3",
+    "@tanstack/react-query": "^5.25.0",
+    "better-sqlite3": "^12.0.0",
+    "better-sqlite3-multiple-ciphers": "^12.6.2",
+    "class-variance-authority": "^0.7.0",
+    "clsx": "^2.1.0",
+    "date-fns": "^3.3.1",
+    "drizzle-orm": "^0.30.0",
+    "electron-updater": "^6.1.7",
+    "exceljs": "^4.4.0",
+    "google-auth-library": "^10.6.1",
+    "lucide-react": "^0.358.0",
+    "node-machine-id": "^1.1.12",
+    "nodemailer": "^8.0.2",
+    "qrcode": "^1.5.4",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-hook-form": "^7.51.0",
+    "react-router-dom": "^6.22.0",
+    "recharts": "^2.12.0",
+    "sonner": "^1.4.3",
+    "tailwind-merge": "^2.2.1",
+    "xlsx": "^0.18.5",
+    "zod": "^3.22.4",
+    "zustand": "^4.5.0"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "better-sqlite3",
+      "better-sqlite3-multiple-ciphers",
+      "electron",
+      "esbuild",
+      "es5-ext"
+    ],
+    "patchedDependencies": {
+      "@react-pdf/textkit@4.4.1": "patches/@react-pdf__textkit@4.4.1.patch"
+    }
+  },
+  "build": {
+    "appId": "com.clinicapp.desktop",
+    "productName": "Clinic App",
+    "copyright": "Copyright © 2025",
+    "directories": {
+      "output": "dist"
+    },
+    "files": [
+      "out/**/*"
+    ],
+    "asarUnpack": [
+      "node_modules/better-sqlite3-multiple-ciphers/**/*",
+      "node_modules/better-sqlite3/**/*",
+      "node_modules/node-machine-id/**/*"
+    ],
+    "extraResources": [
+      {
+        "from": "resources/",
+        "to": "resources/",
+        "filter": [
+          "**/*"
+        ]
+      }
+    ],
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "resources/icon.ico",
+      "artifactName": "ClinicApp-Setup-${version}.exe"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "installerLanguages": [
+        "ar",
+        "en"
+      ],
+      "language": "1025",
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "Clinic App",
+      "uninstallDisplayName": "Clinic App",
+      "runAfterFinish": true
+    },
+    "mac": {
+      "target": [
+        {
+          "target": "dmg",
+          "arch": [
+            "arm64"
+          ]
+        }
+      ],
+      "icon": "resources/icon.icns",
+      "artifactName": "ClinicApp-${version}-${arch}.dmg",
+      "category": "public.app-category.medical"
+    },
+    "dmg": {
+      "artifactName": "ClinicApp-${version}-${arch}.dmg"
+    },
+    "npmRebuild": true,
+    "publish": null
+  },
+  "devDependencies": {
+    "@tailwindcss/typography": "^0.5.11",
+    "@types/better-sqlite3": "^7.6.8",
+    "@types/nodemailer": "^7.0.11",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "@vitejs/plugin-react": "^4.2.0",
+    "autoprefixer": "^10.4.18",
+    "drizzle-kit": "^0.20.14",
+    "electron": "34",
+    "electron-builder": "^24.13.0",
+    "electron-rebuild": "^3.2.9",
+    "electron-vite": "^2.0.0",
+    "postcss": "^8.4.35",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.4.0"
+  }
+}
