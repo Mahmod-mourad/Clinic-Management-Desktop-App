@@ -112,3 +112,11 @@ The app uses Electron's main/renderer separation strictly:
 MIT
 
 </div>
+<img width="2784" height="1824" alt="image" src="https://github.com/user-attachments/assets/a3c1faa8-30dc-40d7-8ed5-02d0012ba917" />
+<img width="2880" height="1740" alt="image" src="https://github.com/user-attachments/assets/1aa337be-cafe-41bf-ac6d-53fb39bcdab8" />
+<img width="2880" height="1740" alt="image" src="https://github.com/user-attachments/assets/d1dd32d6-3cfa-4c3b-a20a-cef8553dfbe7" />
+<img width="2880" height="1740" alt="image" src="https://github.com/user-attachments/assets/dd405a72-6e40-4b19-a94e-3f248481d0a0" />
+<img width="2880" height="1740" alt="image" src="https://github.com/user-attachments/assets/9f26b0d4-05d5-46bf-b5a3-884f0f9ab8a5" />
+
+<img width="2880" height="1740" alt="image" src="https://github.com/user-attachments/assets/94cb0eb5-9052-48f3-aafd-f266bb6af0c5" />
+
